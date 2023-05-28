@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 
 import { CarsProvider } from './Context'
-import Layout from './Layout'
 
 const App = () => {
+  const Layout = lazy(() => import('./Layout'))
   
   return (
-    <CarsProvider>
-      <Layout />
-    </CarsProvider>
+    <Suspense fallback={<div>Loading...</div>}>
+      <CarsProvider>
+        <Layout />
+      </CarsProvider>
+    </Suspense>
   )
 }
 
