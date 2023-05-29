@@ -1,24 +1,79 @@
-.container {
+.cars {
+  width: 100%;
+  max-width: 1024px;
+  padding: 4rem 0;
+  will-change: transform;
+  transform: translateY(12rem);
+  animation: cars-appear 1s ease forwards;
+}
+
+@keyframes cars-appear {
+    from {
+        transform: translateY(12rem);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.cars__title {
+  margin: 0 0 0.4rem;
+  font-size: 1.2rem;
+  text-align: center;
+  color: white;
+}
+
+.cars__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+  justify-items: center;
+}
+
+.cars__image-container {
   position: relative;
   width: 300px;
   height: 300px;
   border-radius: 1rem;
   overflow: hidden;
   margin: 1rem;
+  border: 1px solid white;
 }
 
-.item-1 {
+.cars__blur {
   position: absolute !important;
   top: 0;
 }
 
-.item-2 {
+.cars__lazy-load {
   position: absolute;
   top: 0;
   object-fit: cover;
   object-position: center center;
   width: 300px;
   height: 300px;
+  transition: transform 0.3s ease;
+}
+
+.cars__lazy-load:hover {
+  transform: scale(1.2);
+}
+
+.cars__name {
+  position: absolute !important;
+  bottom: 0;
+  padding-left: 1rem;
+  color: white;
+  text-transform: capitalize;
+  font-size: 0.8rem;
+  background: rgba(0, 0, 0, 0.5);
+  width: calc(300px - 2rem);
+  padding: 1rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .non-visible {

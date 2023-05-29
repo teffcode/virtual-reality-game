@@ -14,9 +14,8 @@ const Layout = () => {
         <div className='layout'>
             <div className='layout__image'></div>
             <div className='layout__content'>
-                <Form />
                 <Suspense fallback={<Loading />}>
-                    { context.showComponent ? <Cars /> : null }
+                    { context.showComponent ? <Cars /> : <Form /> }
                 </Suspense>
             </div>
         </div>
