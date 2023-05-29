@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form'
 
 import { CarsContext } from './Context'
 
+import './Form.css'
+
 const Form = () => {
     const context = useContext(CarsContext)
     const { register, handleSubmit, formState: { errors, isValid, isDirty } } = useForm()
@@ -17,40 +19,72 @@ const Form = () => {
     }
 
   return (
-    <div>
-        <h1>Welcome 😊</h1>
+    <div className='form'>
+        <h1 className='form__title'>VIRTUAL REALITY GAME</h1>
+        <p className='form__subtitle'>Please, fill out this form to start</p>
         <form onSubmit={handleSubmit(checkValues)}>
-            <div>
-                <label>Name:</label>
-                <input {...register('name', { required: true })} />
-                {errors.name && <span>This field is required</span>}
+            <div className='form-field'>
+                <label className='form-field__label'>Name:</label>
+                <div>
+                    <input
+                        className='form-field__input'
+                        placeholder='Max Emilian Verstappen'
+                        {...register('name', { required: true })} />
+                    {errors.name && <span className='form-field__error'>This field is required</span>}
+                </div>
             </div>
 
-            <div>
-                <label>Email:</label>
-                <input {...register('email', { required: true, pattern: /^\S+@\S+$/i })} />
-                {errors.email && <span>This field is required and should be a valid email</span>}
+            <div className='form-field'>
+                <label className='form-field__label'>Email:</label>
+                <div>
+                    <input
+                        className='form-field__input'
+                        placeholder='max@formulaone.com'
+                        {...register('email', { required: true, pattern: /^\S+@\S+$/i })} />
+                    {errors.email && <span className='form-field__error'>This field is required and should be a valid email</span>}
+                </div>
             </div>
 
-            <div>
-                <label>Date of Birth:</label>
-                <input type="date" {...register('dob', { required: true })} />
-                {errors.dob && <span>This field is required</span>}
+            <div className='form-field'>
+                <label className='form-field__label'>Date of Birth:</label>
+                <div>
+                    <input
+                        className='form-field__input'
+                        type="date"
+                        {...register('dob', { required: true })} />
+                    {errors.dob && <span className='form-field__error'>This field is required</span>}
+                </div>
             </div>
 
-            <div>
-                <label>Favourite Colour:</label>
-                <input {...register('colour', { required: true })} />
-                {errors.colour && <span>This field is required</span>}
+            <div className='form-field'>
+                <label className='form-field__label'>Favorite Color:</label>
+                <div>
+                    <input
+                        className='form-field__input'
+                        placeholder='Red'
+                        {...register('color', { required: true })} />
+                    {errors.color && <span className='form-field__error'>This field is required</span>}
+                </div>
             </div>
 
-            <div>
-                <label>Salary:</label>
-                <input type="range" min="0" max="100000" {...register('salary', { required: true })} />
-                {errors.salary && <span>This field is required</span>}
+            <div className='form-field'>
+                <label className='form-field__label'>Salary:</label>
+                <div>
+                    <div className='form-field__range'>
+                        <span>60K</span>
+                        <span>100K</span>
+                    </div>
+                    <input
+                        className='form-field__input'
+                        type="range"
+                        min="60000"
+                        max="100000"
+                        {...register('salary', { required: true })} />
+                    {errors.salary && <span className='form-field__error'>This field is required</span>}
+                </div>
             </div>
 
-            <button type='submit'>Continue</button>
+            <button className='form__button' type='submit'>Start</button>
         </form>
     </div>
   )

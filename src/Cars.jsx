@@ -4,7 +4,7 @@ import { LazyLoadImage, LazyLoadComponent } from 'react-lazy-load-image-componen
 import { Blurhash } from 'react-blurhash'
 
 import 'react-lazy-load-image-component/src/effects/blur.css'
-import './Cars.css';
+import './Cars.css'
 
 const Cars = () => {
     const [images, setImages] = useState()
