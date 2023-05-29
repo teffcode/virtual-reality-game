@@ -64,6 +64,10 @@
     border: none;
     background: transparent !important;
     border-bottom: 1px solid white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+    color: white;
     width: 100%;
 }
 
@@ -73,13 +77,14 @@
 }
 
 .form-field__error {
-    margin-top: 0.2rem;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
+    font-weight: 100;
 }
 
 input::placeholder,
 input[type="date"]:not(:placeholder-shown) {
-    color: rgba(255, 255, 255, 0.4);
+    color: white;
+    opacity: 0.5;
     font-family: 'Poppins', sans-serif;
     font-weight: 100;
     font-size: 0.8rem;
@@ -95,6 +100,6 @@ input:-webkit-autofill:focus,
 input:-internal-autofill-selected {
     background-color: transparent !important;
     font-family: 'Poppins', sans-serif;
-    font-weight: 300;
+    font-weight: 100;
     font-size: 0.8rem;
 }

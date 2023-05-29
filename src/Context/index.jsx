@@ -11,7 +11,7 @@ export const CarsProvider = ({ children }) => {
             password,
             setPassword,
             showComponent,
-            setShowComponent,
+            setShowComponent
         }}>
           { children }
         </CarsContext.Provider>

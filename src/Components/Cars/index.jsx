@@ -10,35 +10,37 @@ const Cars = () => {
     const [images, setImages] = useState()
     const [imageLoaded, setImageLoaded] = useState([])
 
-  const handleImageLoad = (index) => {
-    setImageLoaded((prevLoaded) => {
-      const loaded = [...prevLoaded]
-      loaded[index] = true
-      return loaded
-    })
-  }
-
-  useEffect(() => {
-    fetch('/cars.json')
-        .then(res => res.json())
-        .then(data => {
-            setImages(data)
+    const handleImageLoad = (index) => {
+        setImageLoaded((prevLoaded) => {
+            const loaded = [...prevLoaded]
+            loaded[index] = true
+            return loaded
         })
-        .catch(error => {
-        console.error('Error:', error);
-        });
-}, []);
+    }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('/cars.json')
+                const data = await response.json()
+                setImages(data)
+            } catch (error) {
+                console.error('Error:', error)
+            }
+        }
+
+        fetchData()
+    }, [])
 
   return (
     <div className='cars'>
-        <h2 className='cars__title'>CHOOSE YOUR CAR</h2>
+        <h2 className='cars__title'>CHOOSE YOUR VIRTUAL CAR</h2>
         <div className='cars__content'>
             {
                 images?.map((image, index) => (
-                    <LazyLoadComponent key={image.id+index+index}>
+                    <LazyLoadComponent key={image.id}>
                         <div className='cars__image-container'>
                             <Blurhash
-                                key={image.id+index}
                                 hash={image.hash}
                                 width={300}
                                 height={300}
@@ -46,7 +48,6 @@ const Cars = () => {
                                 resolutionY={32}
                                 className='cars__blur' />
                             <LazyLoadImage
-                                key={image.id}
                                 alt={image.alt_description}
                                 width={300}
                                 height={300}

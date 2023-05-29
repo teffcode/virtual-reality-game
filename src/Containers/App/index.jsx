@@ -8,9 +8,9 @@ const App = () => {
   
   return (
     <Suspense fallback={<Loading />}>
-      <CarsProvider>
-        <Layout />
-      </CarsProvider>
+        <CarsProvider>
+            <Layout />
+        </CarsProvider>
     </Suspense>
   )
 }
