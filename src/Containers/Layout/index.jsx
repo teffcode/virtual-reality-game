@@ -1,14 +1,14 @@
 import React, { useContext, Suspense } from 'react'
 
-import { CarsContext } from './Context'
-import Form from './Form'
-import Loading from './Loading'
+import { CarsContext } from '../../Context'
+import Form from '../../Components/Form'
+import Loading from '../../Components/Loading'
 
-import './Layout.css'
+import './styles.css'
 
 const Layout = () => {
     const context = useContext(CarsContext)
-    const Cars = React.lazy(() => import('./Cars'))
+    const Cars = React.lazy(() => import('../../Components/Cars'))
 
     return (
         <div className='layout'>

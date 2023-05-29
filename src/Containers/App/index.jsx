@@ -1,10 +1,10 @@
 import React, { lazy, Suspense } from 'react'
 
-import { CarsProvider } from './Context'
-import Loading from './Loading'
+import { CarsProvider } from '../../Context'
+import Loading from '../../Components/Loading'
 
 const App = () => {
-  const Layout = lazy(() => import('./Layout'))
+  const Layout = lazy(() => import('../Layout'))
   
   return (
     <Suspense fallback={<Loading />}>

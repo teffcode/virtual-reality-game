@@ -2,9 +2,9 @@ import React, { useContext } from 'react'
 
 import { useForm } from 'react-hook-form'
 
-import { CarsContext } from './Context'
+import { CarsContext } from '../../Context'
 
-import './Form.css'
+import './styles.css'
 
 const Form = () => {
     const context = useContext(CarsContext)
