@@ -31,7 +31,7 @@ const Cars = () => {
 
   return (
     <div className='cars'>
-        <h2 className='cars__title'>CHOOSE YOUR CAR:</h2>
+        <h2 className='cars__title'>CHOOSE YOUR CAR</h2>
         <div className='cars__content'>
             {
                 images?.map((image, index) => (
