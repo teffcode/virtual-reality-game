@@ -10,7 +10,7 @@ const Form = () => {
     const context = useContext(CarsContext)
     const { register, handleSubmit, formState: { errors, isValid, isDirty } } = useForm()
   
-    const checkValues = async data => {
+    const checkValues = async () => {
         if (isValid && isDirty) {
             context.setShowComponent(true)
         } else {
@@ -40,6 +40,7 @@ const Form = () => {
                     <input
                         className='form-field__input'
                         placeholder='max@formulaone.com'
+                        type='email'
                         {...register('email', { required: true, pattern: /^\S+@\S+$/i })} />
                     {errors.email && <span className='form-field__error'>This field is required and should be a valid email</span>}
                 </div>
@@ -51,7 +52,7 @@ const Form = () => {
                     <input
                         className='form-field__input'
                         type="date"
-                        {...register('dob', { required: true })} />
+                        {...register('dateOfBirth', { required: true })} />
                     {errors.dob && <span className='form-field__error'>This field is required</span>}
                 </div>
             </div>
@@ -62,7 +63,7 @@ const Form = () => {
                     <input
                         className='form-field__input'
                         placeholder='Red'
-                        {...register('color', { required: true })} />
+                        {...register('favoriteColor', { required: true })} />
                     {errors.color && <span className='form-field__error'>This field is required</span>}
                 </div>
             </div>
